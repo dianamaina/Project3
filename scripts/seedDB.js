@@ -123,9 +123,9 @@ const bookSeed = [
   }
 ];
 
-db.Book
+db.Document
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.Document.collection.insertMany(documentSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
