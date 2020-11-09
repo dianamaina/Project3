@@ -5,10 +5,10 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
+  "mongodb://localhost/documentlist"
 );
 
-const bookSeed = [
+const documentSeed = [
   {
     title: "The Dead Zone",
     author: "Stephen King",
@@ -127,7 +127,7 @@ db.Document
   .remove({})
   .then(() => db.Document.collection.insertMany(documentSeed))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result.n + " documents inserted!");
     process.exit(0);
   })
   .catch(err => {
