@@ -59,7 +59,7 @@ function Documents() {
       <Row>
         <Col size="md-6">
           <Jumbotron>
-            <h1>Click here to add documents</h1>
+            <button type="button" class="btn btn-primary">Click here to add documents</button>
           </Jumbotron>
           <form>
             <Input
@@ -87,7 +87,7 @@ function Documents() {
         </Col>
         <Col size="md-6 sm-12">
           <Jumbotron>
-            <h1> Click here to add documents</h1>
+            <button type="button" class="btn btn-primary">Click here to add documents</button>
           </Jumbotron>
           {documents.length ? (
             <List>
