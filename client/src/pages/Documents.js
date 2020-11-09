@@ -7,29 +7,29 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-function Books() {
+function Documents() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([])
+  const [documents, setDocuments] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadBooks()
+    loadDocuments()
   }, [])
 
-  // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
+  // Loads all documents and sets them to Documents
+  function loadDocuments() {
+    API.getDocuments()
       .then(res =>
-        setBooks(res.data)
+        setDocuments(res.data)
       )
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
+  // Deletes a document from the database with a given id, then reloads documents from the db
+  function deleteDocument(id) {
+    API.deleteDocument(id)
+      .then(res => loadDocuments())
       .catch(err => console.log(err));
   }
 
@@ -44,12 +44,12 @@ function Books() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-      API.saveBook({
-        title: formObject.title,
-        author: formObject.author,
+      API.saveDocument({
+        document: formObject.document,
+        category: formObject.category,
         synopsis: formObject.synopsis
       })
-        .then(res => loadBooks())
+        .then(res => loadDocuments())
         .catch(err => console.log(err));
     }
   };
@@ -64,13 +64,13 @@ function Books() {
           <form>
             <Input
               onChange={handleInputChange}
-              name="title"
-              placeholder="Title (required)"
+              name="document"
+              placeholder="document name (required)"
             />
             <Input
               onChange={handleInputChange}
-              name="author"
-              placeholder="Author (required)"
+              category="category"
+              placeholder="Category required (required)"
             />
             <TextArea
               onChange={handleInputChange}
@@ -81,7 +81,7 @@ function Books() {
               disabled={!(formObject.author && formObject.title)}
               onClick={handleFormSubmit}
             >
-              Submit Book
+              Submit Document
               </FormBtn>
           </form>
         </Col>
@@ -89,16 +89,16 @@ function Books() {
           <Jumbotron>
             <h1> Click here to add documents</h1>
           </Jumbotron>
-          {books.length ? (
+          {documents.length ? (
             <List>
-              {books.map(book => (
-                <ListItem key={book._id}>
-                  <Link to={"/books/" + book._id}>
+              {documents.map(documents => (
+                <ListItem key={documents._id}>
+                  <Link to={"/documents/" + Documents._id}>
                     <strong>
-                      {book.title} by {book.author}
+                      {documents.title} by {documents.author}
                     </strong>
                   </Link>
-                  <DeleteBtn onClick={() => deleteBook(book._id)} />
+                  <DeleteBtn onClick={() => deleteDocument(document._id)} />
                 </ListItem>
               ))}
             </List>
@@ -112,4 +112,4 @@ function Books() {
 }
 
 
-export default Books;
+export default Documents;
