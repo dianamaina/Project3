@@ -62,8 +62,22 @@ function Documents() {
             <h3>Personal</h3>
             <button type="button" class="btn btn-primary">Click here to add documents</button>
           </Jumbotron>
-          <form>
-          </form>
+          {documents.length ? (
+            <List>
+              {documents.map(documents => (
+                <ListItem key={documents._id}>
+                  <Link to={"/documents/" + Documents._id}>
+                    <strong>
+                      {documents.title} by {documents.author}
+                    </strong>
+                  </Link>
+                  <DeleteBtn onClick={() => deleteDocument(document._id)} />
+                </ListItem>
+              ))}
+            </List>
+          ) : (
+              <h3 >No Documents to Display</h3>
+            )}
         </Col>
         <Col size="md-6 sm-12">
           <Jumbotron>
