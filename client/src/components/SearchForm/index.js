@@ -14,7 +14,7 @@ function SearchForm(props) {
           list="term"
           type="text"
           className="form-control"
-          placeholder="Type in a search term to begin"
+          placeholder="Search for your document here"
           id="term"
         />
       </div>
