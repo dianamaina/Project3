@@ -59,35 +59,16 @@ function Documents() {
       <Row>
         <Col size="md-6">
           <Jumbotron>
-            <h1>Click here to add documents</h1>
+            <h3>Personal</h3>
+            <button type="button" class="btn btn-primary">Click here to add documents</button>
           </Jumbotron>
           <form>
-            <Input
-              onChange={handleInputChange}
-              name="document"
-              placeholder="document name (required)"
-            />
-            <Input
-              onChange={handleInputChange}
-              category="category"
-              placeholder="Category required (required)"
-            />
-            <TextArea
-              onChange={handleInputChange}
-              name="synopsis"
-              placeholder="Synopsis (Optional)"
-            />
-            <FormBtn
-              disabled={!(formObject.author && formObject.title)}
-              onClick={handleFormSubmit}
-            >
-              Submit Document
-              </FormBtn>
           </form>
         </Col>
         <Col size="md-6 sm-12">
           <Jumbotron>
-            <h1> Click here to add documents</h1>
+            <h3>Legal</h3>
+            <button type="button" class="btn btn-primary">Click here to add documents</button>
           </Jumbotron>
           {documents.length ? (
             <List>
@@ -103,7 +84,7 @@ function Documents() {
               ))}
             </List>
           ) : (
-              <h3>No Results to Display</h3>
+              <h3 >No Documents to Display</h3>
             )}
         </Col>
       </Row>
