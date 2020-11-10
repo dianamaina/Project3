@@ -4,12 +4,14 @@ import Documents from "./pages/Documents";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import SearchForm from "./components/SearchForm";
 
 function App() {
   return (
     <Router>
       <div>
         <Nav />
+        <SearchForm></SearchForm>
         <Switch>
           <Route exact path={["/", "/documents"]}>
             <Documents />
