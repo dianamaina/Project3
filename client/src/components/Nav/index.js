@@ -3,9 +3,9 @@ import React from "react";
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
-        Blanket -Access your files on the go!
-      </a>
+      <h1 className="navbar-brand">
+        Blanket Access your files on the go!
+      </h1>
     </nav>
   );
 }
