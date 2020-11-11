@@ -1,21 +1,14 @@
 import React from "react";
-import "./style.css";
+// import "./";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-const [pictures, setPictures] = useState([]);
+function DeleteBtn(props) {
+  return (
+    <span className="delete-btn" {...props} role="button" tabIndex="0">
+      ✗
+    </span>
+  );
+}
 
-const onDrop = picture => {
-  setPictures([...pictures, picture]);
-  function UploadBtn(props) {
-    return (
-      <ImageUploader
-        {...props}
-        withIcon={true}
-        onChange={onDrop}
-        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-        maxFileSize={5242880}
-      />
-  };
-
-  export default UploadBtn;
+export default DeleteBtn;
