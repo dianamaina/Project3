@@ -5,6 +5,7 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import SearchForm from "./components/SearchForm";
+import FileUpload from "./components/ImgUpload/FileUpload";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path={["/", "/documents"]}>
             <Documents />
+            <FileUpload />
           </Route>
           <Route exact path="/documents/:id">
             <Detail />
