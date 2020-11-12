@@ -5,10 +5,10 @@ import FileUploader from "react-firebase-file-uploader";
 class ProfilePage extends Component {
   state = {
     username: "",
-    avatar: "",
+    Document: "",
     isUploading: false,
     progress: 0,
-    avatarURL: ""
+    filenameURL: ""
   };
 
   handleChangeUsername = event =>
@@ -20,13 +20,13 @@ class ProfilePage extends Component {
     console.error(error);
   };
   handleUploadSuccess = filename => {
-    this.setState({ avatar: filename, progress: 100, isUploading: false });
+    this.setState({ Document: filename, progress: 100, isUploading: false });
     firebase
       .storage()
       .ref("images")
       .child(filename)
       .getDownloadURL()
-      .then(url => this.setState({ avatarURL: url }));
+      .then(url => this.setState({ DocumentURL: url }));
   };
 
   render() {
@@ -40,12 +40,12 @@ class ProfilePage extends Component {
             name="username"
             onChange={this.handleChangeUsername}
           />
-          <label>Avatar:</label>
+          <label>Document Type:</label>
           {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-          {this.state.avatarURL && <img src={this.state.avatarURL} />}
+          {this.state.DocumentURL && <img src={this.state.DocumentURL} />}
           <FileUploader
             accept="image/*"
-            name="avatar"
+            name="Document"
             randomizeFilename
             storageRef={firebase.storage().ref("images")}
             onUploadStart={this.handleUploadStart}
