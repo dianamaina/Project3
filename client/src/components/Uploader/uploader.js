@@ -1,7 +1,23 @@
 import React, { Component } from "react";
-import firebase from "firebase";
+import Firebase from "firebase";
 import FileUploader from "react-firebase-file-uploader";
+import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCDNibyEFc1XabUkUrstYzcUAuVRuGTaR4",
+    authDomain: "fair-ceiling-289815.firebaseapp.com",
+    databaseURL: "https://fair-ceiling-289815.firebaseio.com",
+    projectId: "fair-ceiling-289815",
+    storageBucket: "fair-ceiling-289815.appspot.com",
+    messagingSenderId: "122805515521",
+    appId: "1:122805515521:web:dd334576de52ce2ddc5700",
+    measurementId: "G-5QXEGE6GHP"
+  };
+  // Initialize Firebase
+  Firebase.initializeApp(firebaseConfig);
+  Firebase.analytics();
 class ProfilePage extends Component {
   state = {
     username: "",
@@ -21,7 +37,7 @@ class ProfilePage extends Component {
   };
   handleUploadSuccess = filename => {
     this.setState({ Document: filename, progress: 100, isUploading: false });
-    firebase
+    Firebase
       .storage()
       .ref("images")
       .child(filename)
@@ -47,12 +63,24 @@ class ProfilePage extends Component {
             accept="image/*"
             name="Document"
             randomizeFilename
-            storageRef={firebase.storage().ref("images")}
+            storageRef={Firebase.storage().ref("images")}
             onUploadStart={this.handleUploadStart}
             onUploadError={this.handleUploadError}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
           />
+          <CustomUploadButton
+          accept="image/*"
+          storageRef={Firebase.storage().ref('images')}
+          onUploadStart={this.handleUploadStart}
+          onUploadError={this.handleUploadError}
+          onUploadSuccess={this.handleUploadSuccess}
+          onProgress={this.handleProgress}
+          style={{backgroundColor: 'steelblue', color: 'white', padding: 10, borderRadius: 4}}
+        >
+          Select your awesome avatar
+        </CustomUploadButton>
+
         </form>
       </div>
     );
