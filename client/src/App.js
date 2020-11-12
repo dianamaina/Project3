@@ -5,7 +5,7 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import SearchForm from "./components/SearchForm";
-import FileUpload from "./components/ImgUpload/FileUpload";
+import Uploader from "./components/Uploader/uploader";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <div>
         <Nav />
         <SearchForm></SearchForm>
+        <Uploader></Uploader>
         <Switch>
           <Route exact path={["/", "/documents"]}>
             <Documents />
