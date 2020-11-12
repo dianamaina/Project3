@@ -7,7 +7,6 @@ import Nav from "./components/Nav";
 import SearchForm from "./components/SearchForm";
 import Uploader from "./components/Uploader/uploader";
 
-
 function App() {
   return (
     <Router>
@@ -18,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path={["/", "/documents"]}>
             <Documents />
+            <FileUpload />
           </Route>
           <Route exact path="/documents/:id">
             <Detail />
