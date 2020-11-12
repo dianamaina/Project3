@@ -17,7 +17,6 @@ function App() {
         <Switch>
           <Route exact path={["/", "/documents"]}>
             <Documents />
-            <FileUpload />
           </Route>
           <Route exact path="/documents/:id">
             <Detail />
