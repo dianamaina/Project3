@@ -5,7 +5,7 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import SearchForm from "./components/SearchForm";
-import file-uploader from "./components\file-uploader\file-uploader.js";
+import Uploader from "./components/Uploader";
 
 
 function App() {
