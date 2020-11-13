@@ -18,6 +18,7 @@ function App() {
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
     </div>
+
   );
 }
 
