@@ -57,7 +57,7 @@ function Documents() {
         <Col size="md-6">
           <Jumbotron>
             <h3>Personal</h3>
-            <button type="button" class="btn btn-primary">Click here to add documents</button>
+            <button onClick="FileUpload" type="button" class="btn btn-primary">Click here to add documents</button>
           </Jumbotron>
           {documents.length ? (
             <List>
