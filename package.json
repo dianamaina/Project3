@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "axios": "^0.18.1",
+    "cloudinary": "^1.23.0",
     "express": "^4.16.3",
     "firebase": "^8.0.2",
     "firestore": "^1.1.6",
-
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "react-firebase-file-uploader": "^2.4.3"
