@@ -15,14 +15,14 @@ function Documents() {
   useEffect(() => {
     loadDocuments()
   }, [])
-
-  // Loads all documents and sets them to Documents
-  function loadDocuments() {
-    API.getDocuments()
-      .then(res =>
-        setDocuments(res.data)
-      ).catch(err => console.log(err));
-  };
+    ?
+    // Loads all documents and sets them to Documents Test
+    function loadDocuments() {
+      API.getDocuments()
+        .then(res =>
+          setDocuments(res.data)
+        ).catch(err => console.log(err));
+    };
 
   // Deletes a document from the database with a given id, then reloads documents from the db
   function uploadDocument(id) {
