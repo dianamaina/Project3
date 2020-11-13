@@ -1,32 +1,23 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Documents from "./pages/Documents";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import SearchForm from "./components/SearchForm";
-import FileUpload from "./components/ImgUpload/FileUpload";
+import React, { useState } from 'react';
+import Title from './comps/Title';
+import UploadForm from './comps/UploadForm';
+import ImageGrid from './comps/ImageGrid';
+import Modal from './comps/Modal';
+import * as firebase from 'firebase/app';
+
 
 function App() {
+  const [selectedImg, setSelectedImg] = useState(null);
+
   return (
-    <Router>
-      <div>
-        <Nav />
-        <SearchForm></SearchForm>
-        <Switch>
-          <Route exact path={["/", "/documents"]}>
-            <Documents />
-            <FileUpload />
-          </Route>
-          <Route exact path="/documents/:id">
-            <Detail />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Title />
+      <UploadForm />
+      <ImageGrid setSelectedImg={setSelectedImg} />
+      { selectedImg && (
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+      )}
+    </div>
   );
 }
 
