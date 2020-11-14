@@ -2,22 +2,22 @@ import React, { Component } from "react";
 import Firebase from "firebase";
 import FileUploader from "react-firebase-file-uploader";
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyCDNibyEFc1XabUkUrstYzcUAuVRuGTaR4",
-    authDomain: "fair-ceiling-289815.firebaseapp.com",
-    databaseURL: "https://fair-ceiling-289815.firebaseio.com",
-    projectId: "fair-ceiling-289815",
-    storageBucket: "fair-ceiling-289815.appspot.com",
-    messagingSenderId: "122805515521",
-    appId: "1:122805515521:web:dd334576de52ce2ddc5700",
-    measurementId: "G-5QXEGE6GHP"
-  };
-  // Initialize Firebase
-  Firebase.initializeApp(firebaseConfig);
-  Firebase.analytics();
+import './style.css';
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyDKWI1f4J_81Au_UX4Cp9MPrrYOsOAir_s",
+  authDomain: "blanket-001.firebaseapp.com",
+  databaseURL: "https://blanket-001.firebaseio.com",
+  projectId: "blanket-001",
+  storageBucket: "blanket-001.appspot.com",
+  messagingSenderId: "1095318653360",
+  appId: "1:1095318653360:web:588b51b77fa473cc18ee75",
+  measurementId: "G-48T95X5ZGW"
+};
+// Initialize Firebase
+Firebase.initializeApp(firebaseConfig);
+Firebase.analytics();
 class ProfilePage extends Component {
   state = {
     username: "",
@@ -57,8 +57,8 @@ class ProfilePage extends Component {
             onChange={this.handleChangeUsername}
           />
           <label>Document Type:</label>
-          {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-          {this.state.DocumentURL && <img src={this.state.DocumentURL} />}
+          {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
+          {this.state.DocumentURL && <img className='img-size' src={this.state.DocumentURL} />}
           <FileUploader
             accept="image/*"
             name="Document"
@@ -70,15 +70,15 @@ class ProfilePage extends Component {
             onProgress={this.handleProgress}
           />
           <CustomUploadButton
-          accept="image/*"
-          storageRef={Firebase.storage().ref('images')}
-          onUploadStart={this.handleUploadStart}
-          onUploadError={this.handleUploadError}
-          onUploadSuccess={this.handleUploadSuccess}
-          onProgress={this.handleProgress}
-          style={{backgroundColor: 'steelblue', color: 'white', padding: 10, borderRadius: 4}}
-        >
-          Select your awesome avatar
+            accept="image/*"
+            storageRef={Firebase.storage().ref('images')}
+            onUploadStart={this.handleUploadStart}
+            onUploadError={this.handleUploadError}
+            onUploadSuccess={this.handleUploadSuccess}
+            onProgress={this.handleProgress}
+            style={{ backgroundColor: 'steelblue', color: 'white', padding: 10, borderRadius: 4 }}
+          >
+            Select your awesome avatar
         </CustomUploadButton>
 
         </form>
