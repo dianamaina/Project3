@@ -7,18 +7,18 @@ import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadBut
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyDKWI1f4J_81Au_UX4Cp9MPrrYOsOAir_s",
-    authDomain: "blanket-001.firebaseapp.com",
-    databaseURL: "https://blanket-001.firebaseio.com",
+    authDomain: "fair-ceiling-289815.firebaseapp.com",
+    databaseURL: "https://blanket-001.firebaseio.com/",
     projectId: "blanket-001",
-    storageBucket: "blanket-001.appspot.com",
-    messagingSenderId: "1095318653360",
-    appId: "1:1095318653360:web:588b51b77fa473cc18ee75",
-    measurementId: "G-48T95X5ZGW"
+    storageBucket: "fair-ceiling-289815.appspot.com",
+    messagingSenderId: "122805515521",
+    appId: "1:122805515521:web:dd334576de52ce2ddc5700",
+    measurementId: "G-5QXEGE6GHP"
   };
   // Initialize Firebase
   Firebase.initializeApp(firebaseConfig);
   Firebase.analytics();
-class Uploader extends Component {
+class ProfilePage extends Component {
   state = {
     username: "",
     Document: "",
@@ -87,4 +87,4 @@ class Uploader extends Component {
   }
 }
 
-export default Uploader;
+export default ProfilePage;
