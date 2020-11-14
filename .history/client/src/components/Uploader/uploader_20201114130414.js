@@ -18,7 +18,7 @@ import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadBut
   // Initialize Firebase
   Firebase.initializeApp(firebaseConfig);
   Firebase.analytics();
-class Uploader extends Component {
+class ProfilePage extends Component {
   state = {
     username: "",
     Document: "",
@@ -87,4 +87,4 @@ class Uploader extends Component {
   }
 }
 
-export default Uploader;
+export default ProfilePage;

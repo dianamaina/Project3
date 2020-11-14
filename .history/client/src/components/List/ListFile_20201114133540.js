@@ -18,7 +18,9 @@ import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadBut
   // Initialize Firebase
   Firebase.initializeApp(firebaseConfig);
   Firebase.analytics();
-class Uploader extends Component {
+  var storage = Firebase.storage();
+
+class ListFile extends Component {
   state = {
     username: "",
     Document: "",
@@ -37,8 +39,7 @@ class Uploader extends Component {
   };
   handleUploadSuccess = filename => {
     this.setState({ Document: filename, progress: 100, isUploading: false });
-    Firebase
-      .storage()
+      storage
       .ref("images")
       .child(filename)
       .getDownloadURL()
@@ -63,7 +64,7 @@ class Uploader extends Component {
             accept="image/*"
             name="Document"
             randomizeFilename
-            storageRef={Firebase.storage().ref("images")}
+            storageRef={storage.ref("images")}
             onUploadStart={this.handleUploadStart}
             onUploadError={this.handleUploadError}
             onUploadSuccess={this.handleUploadSuccess}
@@ -71,7 +72,7 @@ class Uploader extends Component {
           />
           <CustomUploadButton
           accept="image/*"
-          storageRef={Firebase.storage().ref('images')}
+          storageRef={storage.ref('images')}
           onUploadStart={this.handleUploadStart}
           onUploadError={this.handleUploadError}
           onUploadSuccess={this.handleUploadSuccess}
@@ -87,4 +88,4 @@ class Uploader extends Component {
   }
 }
 
-export default Uploader;
+export default ListFile;
