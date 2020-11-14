@@ -22,7 +22,7 @@ function Documents() {
         .then(res =>
           setDocuments(res.data)
         ).catch(err => console.log(err));
-    };
+    }:
 
   // Deletes a document from the database with a given id, then reloads documents from the db
   function uploadDocument(id) {
